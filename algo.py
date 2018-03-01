@@ -1,14 +1,14 @@
 import os
 import inspect
-
-os.chdir(os.path.dirname(inspect.getfile(inspect.currentframe())))
+path = os.path.dirname(inspect.getfile(inspect.currentframe()))
+os.chdir(path)
 
 # Importation des données parsées
-from Parse import features, trajets
+from Parse import *
 
 # Résolution
 
-
+#comment
 # Ecriture des résultats en output A VOIR
 
 def time_travel(end, start):
