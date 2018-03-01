@@ -1,10 +1,13 @@
 import numpy as np
 import csv
+import os
+import inspect
 
 # Working directory
-wd = 'C:/Users/Bastien/Desktop/Hashcode/'
+wd = os.path.dirname(inspect.getfile(inspect.currentframe()))+'/'
+
 # Input name
-filename = wd + 'example.in'
+filename = wd + 'a_example.in'
 
 # Lecture du csv
 data = []
@@ -15,9 +18,17 @@ with open(filename, 'r') as csvfile:
 
 # Traitement des données 
 # A MODIFIER EN FONCTION DU FORMAT DES DONNEES
-features = data[0]
-[R, C, L, H] = map(int, features)
-data[1:] = map(lambda a: a[0], data[1:])
+features = list(map(int, data[0]))
+trajets = []
+for l in data[1:]:
+    traj = []
+    traj.append((int(l[0]), int(l[1])))
+    traj.append((int(l[2]), int(l[3])))
+    traj.append(int(l[4]))
+    traj.append(int(l[5]))
+    trajets.append(traj)
+
+
 
 
         

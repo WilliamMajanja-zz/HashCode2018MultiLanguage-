@@ -1,11 +1,12 @@
 import os
-# Changing working directory
-wd = ''
-os.chdir('C:/Users/Bastien/Desktop/Hashcode/')
+import inspect
+
+os.chdir(os.path.dirname(inspect.getfile(inspect.currentframe())))
+
 # Importation des données parsées
-from Parse import *
+from Parse import features, trajets
 
 # Résolution
 
-#comment
+
 # Ecriture des résultats en output A VOIR
