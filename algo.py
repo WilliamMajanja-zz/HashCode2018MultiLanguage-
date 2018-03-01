@@ -106,8 +106,17 @@ def assign_random(cars, travels):
 def get_output(cars):
     affects=[]
     for car in cars:
-        affects.append(car.affectations)
+        affects.append(car.affectations.list)
     return affects
+
+
+def write_output(list_affect, namefile):
+    with open(namefile, 'w') as outp:
+        for l in list_affect:
+            for k in l:
+                outp.write(str(k)+' ')
+            outp.write('\n')
+        outp.close()
 
 
 def sort_travel(travels):
@@ -153,11 +162,11 @@ assign_random(cars, travels)
 
 output=get_output(cars)
 
-print( "Output :")
-for out in output:
-    print(out)
+# print( "Output :")
+# for out in output:
+#     print(out)
 
-
+write_output(output, "out_example.in")
 
 
 
