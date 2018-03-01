@@ -34,5 +34,4 @@ def energy(list_affect):
 
 dist_trajets = list(map(traj_distance, trajets))
 
-Etat = output
-print(energy(Etat))
+

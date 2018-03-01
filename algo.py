@@ -151,22 +151,22 @@ for trajet in trajets:
     index+=1
 
 # print(travels)
-sort_travel(travels)
+#sort_travel(travels)
 # print(travels)
 
-cars=[]
-for i in range(features[2]):
-    cars.append(car())
-
-assign_random(cars, travels)
-
-output=get_output(cars)
-
-# print( "Output :")
-# for out in output:
-#     print(out)
-
-write_output(output, "out_e.in")
+#cars=[]
+#for i in range(features[2]):
+#    cars.append(car())
+#
+##assign_random(cars, travels)
+#
+##output=get_output(cars)
+#
+## print( "Output :")
+## for out in output:
+##     print(out)
+#
+#write_output(output, "out_e.in")
 
 
 

@@ -8,6 +8,7 @@ Created on Thu Mar  1 20:02:59 2018
 from algo import *
 from random import *
 from Parse import *
+from copy import deepcopy
 
 
 R, C, F, N, B, T = features
@@ -23,7 +24,8 @@ def indice_changement_valide(Etat, vi):
     nb_Courses_vi =  Etat[vi][0]
     return randint(0 , nb_Courses_vi - 1)
 
-def Voisinage(Etat, vi, vj, ci, cj):
+def Voisinage(E, vi, vj, ci, cj):
+    Etat = deepcopy(E)
     courses_vi = Etat[vi][1:]
     courses_vj = Etat[vj][1:]
     
@@ -50,7 +52,7 @@ def Voisinage(Etat, vi, vj, ci, cj):
     end_i = course_i.pt_end
     temps_min_course_i = course_i.latest_end - dist(start_i,end_i) - dist(pos_vi,start_i)
     temps_min_cj = course_cj.latest_end - dist(start_cj,end_cj) - dist(pos_vi,start_cj)
-    while temps_min_cj > temps_min_course_i:
+    while (temps_min_cj > temps_min_course_i and inser <len(courses_vi)-1):
         pos_vi = end_i
         inser += 1
         course_i = travel(trajets[ courses_vi[inser] ],0)
@@ -73,7 +75,7 @@ def Voisinage(Etat, vi, vj, ci, cj):
     end_j = course_j.pt_end
     temps_min_course_j = course_j.latest_end - dist(start_j,end_j) - dist(pos_vj,start_j)
     temps_min_ci = course_ci.latest_end - dist(start_ci,end_ci) - dist(pos_vj,start_ci)
-    while temps_min_ci > temps_min_course_j:
+    while (temps_min_ci > temps_min_course_j and inser <len(courses_vj)-1):
         pos_vj = end_j
         inser += 1
         course_j = travel(trajets[ courses_vj[inser] ],0)
@@ -86,21 +88,23 @@ def Voisinage(Etat, vi, vj, ci, cj):
     Etat[vi][1:] = courses_vi
     Etat[vj][1:] = courses_vj 
     
-    return 0
+    return Etat
 
 
 
-Etat = output
-v1 = voiture_alea(Etat)
-v2 = voiture_alea(Etat)
-print(Etat[v1])
-print(Etat[v2])
-c1 = indice_changement_valide(Etat,v1)
-c2 = indice_changement_valide(Etat,v2)
+E = output
+v1 = voiture_alea(E)
+v2 = voiture_alea(E)
+#print(Etat[v1])
+#print(Etat[v2])
+c1 = indice_changement_valide(E,v1)
+c2 = indice_changement_valide(E,v2)
 print(c1,"  ",c2)
-Voisinage(Etat,v1,v2,c1,c2)
-print(Etat[v1])
-print(Etat[v2])
+Etat = Voisinage(E,v1,v2,c1,c2)
+print(E[v1]==Etat[v1])
+#print(E[v2])
+#print(Etat[v1])
+#print(Etat[v2])
 
 
 
