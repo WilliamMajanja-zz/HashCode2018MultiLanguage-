@@ -1,7 +1,9 @@
+
 import os
-# Changing working directory
-wd = ''
-os.chdir('C:/Users/Bastien/Desktop/Hashcode/')
+import inspect
+path = os.path.dirname(inspect.getfile(inspect.currentframe()))
+os.chdir(path)
+
 # Importation des données parsées
 from Parse import *
 
