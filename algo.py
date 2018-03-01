@@ -7,5 +7,5 @@ from Parse import *
 
 # Résolution
 
-
+#comment
 # Ecriture des résultats en output A VOIR
