@@ -141,8 +141,8 @@ def tri_insertion(tableau):
         #on insère l'élément à sa place
         tableau[j]=en_cours
 
-print(features)
-print(trajets)
+# print(features)
+# prinat(trajets)
 
 travels=[]
 index=0
@@ -150,9 +150,9 @@ for trajet in trajets:
     travels.append(travel(trajet, index))
     index+=1
 
-print(travels)
+# print(travels)
 sort_travel(travels)
-print(travels)
+# print(travels)
 
 cars=[]
 for i in range(features[2]):
@@ -166,7 +166,7 @@ output=get_output(cars)
 # for out in output:
 #     print(out)
 
-write_output(output, "out_example.in")
+write_output(output, "out_e.in")
 
 
 

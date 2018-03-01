@@ -7,7 +7,7 @@ import inspect
 wd = os.path.dirname(inspect.getfile(inspect.currentframe()))+'/'
 
 # Input name
-filename = wd + 'a_example.in'
+filename = wd + 'e_high_bonus.in'
 
 # Lecture du csv
 data = []
